@@ -24,30 +24,25 @@ A simple banking system simulation that allows users to create accounts, deposit
 - Java Development Kit (JDK)
 - Java compiler
 
-### Practice Project 1
+
+### Practice Projects
 
 #### Description
 
-[Description of Practice Project 1]
+This section includes various practice projects aimed at improving coding skills and understanding different programming concepts.
 
-#### How to Use
+#### Other Projects
 
-[Instructions for using Practice Project 1]
+- **Demo Project**
+- **Practice Project**
+- **ahhhhhhhhhhh**
+- **demo**
+- **demo1111**
+- **demo1aaaaaaaaaa**
+- **demo4**
+- **untitled**
+- **untitled2**
+- **untitled3**
 
-#### Requirements
+<!-- Add more projects as needed -->
 
-[List of requirements for Practice Project 1]
-
-### Demo Project 1
-
-#### Description
-
-[Description of Demo Project 1]
-
-#### How to Use
-
-[Instructions for using Demo Project 1]
-
-#### Requirements
-
-[List of requirements for Demo Project 1]
