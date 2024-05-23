@@ -9,8 +9,8 @@ import java.util.Random;
 
 public class WaterPouringSimulation extends JPanel {
 
-    private static final int PANEL_WIDTH = 800;
-    private static final int PANEL_HEIGHT = 600;
+    private static final int PANEL_WIDTH = 1920;
+    private static final int PANEL_HEIGHT = 1080;
     private static final int TIMER_DELAY = 16; // ~60 FPS
     private static final int PARTICLE_SIZE = 5;
 
@@ -34,6 +34,24 @@ public class WaterPouringSimulation extends JPanel {
         // Add new particles
         if (Math.random() < 0.5) {
             particles.add(new Particle(400, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(500, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(600, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(700, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(800, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(900, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(100, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(200, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(300, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1000, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1100, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1200, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1300, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1400, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1500, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1600, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1700, 50)); // Pouring from (400, 50)
+            particles.add(new Particle(1800, 50)); // Pouring from (400, 50)
+
         }
 
         // Update existing particles
