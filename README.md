@@ -1,5 +1,7 @@
 # Project Portfolio
 
+![image](https://raw.githubusercontent.com/terracraft321/java/main/Screenshot%202024-05-23%20194416.png)
+
 ## Description
 
 This repository contains various demo and practice projects showcasing different aspects of programming and software development.
