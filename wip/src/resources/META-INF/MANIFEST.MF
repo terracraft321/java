@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: WaterPouringSimulation
+Class-Path: C:\Users\jonir\IdeaProjects\wip\out\production\wip\
+

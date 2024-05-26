@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pouringwater:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pouringwater_jar</output-path>
+    <root id="archive" name="wip.jar">
+      <element id="module-output" name="wip" />
+    </root>
+  </artifact>
+</component>
