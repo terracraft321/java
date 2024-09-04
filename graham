@@ -1,0 +1,101 @@
+import java.util.*;
+
+// Class to represent a point in 2D space
+class Point implements Comparable<Point> {
+    int x, y;
+
+    // Constructor to initialize the point with x and y coordinates
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // Compare points first by y-coordinate, and then by x-coordinate if y-coordinates are equal
+    public int compareTo(Point p) {
+        if (this.y == p.y) {
+            return this.x - p.x;
+        }
+        return this.y - p.y;
+    }
+
+    // Static method to determine the orientation of the triplet (p, q, r)
+    // Returns 0 if collinear, 1 if clockwise, -1 if counterclockwise
+    public static int orientation(Point p, Point q, Point r) {
+        int val = (q.y - p.y) * (r.x - q.x) - (q.x - p.y) * (r.y - q.y);
+        if (val == 0) return 0; // Collinear
+        return (val > 0) ? 1 : -1; // Clockwise if positive, counterclockwise if negative
+    }
+}
+
+public class ConvexHull {
+
+    // Reference point p0 (starting point with the lowest y-coordinate)
+    public static Point p0;
+
+    // Method to sort the points by polar angle with respect to p0
+    public static void sortPointsByAngle(List<Point> points) {
+        Collections.sort(points, (p1, p2) -> {
+            int o = Point.orientation(p0, p1, p2);
+            if (o == 0)
+                return distance(p0, p1) - distance(p0, p2); // Tie-breaking by distance
+            return (o == -1) ? -1 : 1;
+        });
+    }
+
+    // Calculate squared distance between two points to avoid floating-point operations
+    private static int distance(Point p1, Point p2) {
+        return (p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y);
+    }
+
+    // Graham's scan algorithm to find the convex hull
+    public static List<Point> grahamScan(List<Point> points) {
+        int n = points.size();
+
+        // Step 1: Find the point with the lowest y-coordinate (p0)
+        p0 = Collections.min(points);
+
+        // Step 2: Sort the points based on their polar angle with respect to p0
+        sortPointsByAngle(points);
+
+        // Step 3: Create an empty stack and push the first three points onto it
+        Stack<Point> stack = new Stack<>();
+        stack.push(points.get(0));
+        stack.push(points.get(1));
+        stack.push(points.get(2));
+
+        // Step 4: Process the remaining points
+        for (int i = 3; i < n; i++) {
+            Point top = stack.pop();
+            // Remove points from the stack while the turn formed by them is not counterclockwise
+            while (Point.orientation(stack.peek(), top, points.get(i)) != -1) {
+                top = stack.pop();
+            }
+            stack.push(top); // Push the previous point back onto the stack
+            stack.push(points.get(i)); // Push the current point onto the stack
+        }
+
+        // The points in the stack are the vertices of the convex hull
+        return new ArrayList<>(stack);
+    }
+
+    public static void main(String[] args) {
+        // Sample points
+        List<Point> points = new ArrayList<>();
+        points.add(new Point(0, 3));
+        points.add(new Point(2, 2));
+        points.add(new Point(1, 1));
+        points.add(new Point(2, 1));
+        points.add(new Point(3, 0));
+        points.add(new Point(0, 0));
+        points.add(new Point(3, 3));
+
+        // Find the convex hull using Graham's algorithm
+        List<Point> hull = ConvexHull.grahamScan(points);
+
+        // Output the points in the convex hull
+        System.out.println("Points in the Convex Hull:");
+        for (Point p : hull) {
+            System.out.println("(" + p.x + ", " + p.y + ")");
+        }
+    }
+}
